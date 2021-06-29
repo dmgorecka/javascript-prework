@@ -1,7 +1,20 @@
+function printMessage (msg){
+  var div = document.createElement('div');
+  div.innerHTML = msg;
+  document.getElementById('messages').appendChild(div);
+}
+
+function clearMessages(){
+	document.getElementById('messages').innerHTML = '';
+}
 
 /**
  * Describe this function...
  */
+ const buttonRock = document.getElementById('button-rock');
+ const buttonPaper = document.getElementById('button-paper');
+ const buttonScissors = document.getElementById('button-scissors');
+
 function buttonClicked(argButtonName) {
   clearMessages();
   console.log(argButtonName + 'został kliknięty');
@@ -42,7 +55,7 @@ function displayResult(argPlayerMove, argComputerMove) {
   }
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 }
-console.log('wybór ruchu gracza to: ' + playerInput);
+
 const playerMove = argButtonName;
 console.log('ruch gracza to: ' + playerMove);
 const randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -50,11 +63,7 @@ console.log('wylosowana liczba to: ' + randomNumber);
 const computerMove = getMoveName(randomNumber);
 console.log('ruch komputera to: ' + computerMove);
 displayResult(playerMove, computerMove);
-const buttonTest = document.getElementById('button-test');
-buttonTest.addEventListener('click', function(){ buttonClicked('Guzik TEST'); });
-const buttonRock = document.getElementById('button-rock');
+
 buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });
-const buttonPaper = document.getElementById('button-paper');
 buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
-const buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
